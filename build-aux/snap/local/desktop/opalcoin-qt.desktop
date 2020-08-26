@@ -1,0 +1,15 @@
+# http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.0.html
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=Auop Coin
+Comment=Auop Coin QT main network
+GenericName=OPALCOIN Digital Currency QT client main network
+Exec=opalcoin-core.qt %u
+Terminal=false
+Type=Application
+Icon=${SNAP}/share/pixmaps/opalcoin.png
+MimeType=x-scheme-handler/opalcoin;
+Categories=X-Office;X-Finance;
+Keywords=internet;opalcoin;zauop;auop;core;wallet;qt;main;snap;launchpad;crypto;digital;currency;coin;token;zerocoin;
+Version=1.0

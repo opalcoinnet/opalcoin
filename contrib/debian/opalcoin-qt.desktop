@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Auop Coin
+Comment=OPALCOIN P2P Cryptocurrency
+Comment[fr]=OPALCOIN, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=OPALCOIN, eşten eşe kriptografik sanal para birimi
+Exec=opalcoin-qt %u
+Terminal=false
+Type=Application
+Icon=opalcoin128
+MimeType=x-scheme-handler/opalcoin;
+Categories=Office;Finance;
+StartupWMClass=OPALcoin-qt

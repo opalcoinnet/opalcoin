@@ -1,0 +1,4 @@
+qt/qt_libbitcoinqt_a-qrc_opalcoin_locale.o: qt/qrc_opalcoin_locale.cpp \
+ /usr/include/stdc-predef.h
+
+/usr/include/stdc-predef.h:

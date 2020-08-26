@@ -1,0 +1,3 @@
+usr/local/bin/opalcoind usr/bin
+usr/local/bin/opalcoin-cli usr/bin
+debian/examples/opalcoin.conf etc/opalcoin

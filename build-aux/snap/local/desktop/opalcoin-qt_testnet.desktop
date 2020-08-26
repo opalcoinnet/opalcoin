@@ -1,0 +1,15 @@
+# http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.0.html
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=Auop Coin
+Comment=Auop Coin QT test network
+GenericName=OPALCOIN Digital Currency QT client testnet network
+Exec=opalcoin-core.qt-testnet %u
+Terminal=false
+Type=Application
+Icon=${SNAP}/share/pixmaps/opalcoin_testnet.png
+MimeType=x-scheme-handler/auop;
+Categories=X-Office;X-Finance;
+Keywords=internet;opalcoin;zauop;tauop;core;wallet;qt;testnet;snap;launchpad;crypto;digital;currency;coin;token;zerocoin;
+Version=1.0

@@ -1,0 +1,851 @@
+# Copyright (c) 2013-2016 The Bitcoin Core developers
+# Distributed under the MIT software license, see the accompanying
+# file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
+bin_PROGRAMS += qt/opalcoin-qt
+EXTRA_LIBRARIES += qt/libbitcoinqt.a
+
+# opalcoin qt core #
+QT_TS = \
+  qt/locale/opalcoin_bg.ts \
+  qt/locale/opalcoin_ca.ts \
+  qt/locale/opalcoin_cs.ts \
+  qt/locale/opalcoin_da.ts \
+  qt/locale/opalcoin_de.ts \
+  qt/locale/opalcoin_en.ts \
+  qt/locale/opalcoin_en_GB.ts \
+  qt/locale/opalcoin_en_US.ts \
+  qt/locale/opalcoin_eo.ts \
+  qt/locale/opalcoin_es.ts \
+  qt/locale/opalcoin_es_ES.ts \
+  qt/locale/opalcoin_fi.ts \
+  qt/locale/opalcoin_fr_FR.ts \
+  qt/locale/opalcoin_hi_IN.ts \
+  qt/locale/opalcoin_hr.ts \
+  qt/locale/opalcoin_hr_HR.ts \
+  qt/locale/opalcoin_it.ts \
+  qt/locale/opalcoin_ja.ts \
+  qt/locale/opalcoin_ko_KR.ts \
+  qt/locale/opalcoin_lt_LT.ts \
+  qt/locale/opalcoin_nl.ts \
+  qt/locale/opalcoin_pl.ts \
+  qt/locale/opalcoin_pt.ts \
+  qt/locale/opalcoin_pt_BR.ts \
+  qt/locale/opalcoin_ro_RO.ts \
+  qt/locale/opalcoin_ru.ts \
+  qt/locale/opalcoin_sk.ts \
+  qt/locale/opalcoin_sv.ts \
+  qt/locale/opalcoin_tr.ts \
+  qt/locale/opalcoin_uk.ts \
+  qt/locale/opalcoin_vi.ts \
+  qt/locale/opalcoin_zh_CN.ts \
+  qt/locale/opalcoin_zh_TW.ts
+
+QT_FORMS_UI = \
+  qt/forms/addressbookpage.ui \
+  qt/forms/askpassphrasedialog.ui \
+  qt/forms/coincontroldialog.ui \
+  qt/forms/blockexplorer.ui \
+  qt/forms/editaddressdialog.ui \
+  qt/forms/governancepage.ui \
+  qt/forms/helpmessagedialog.ui \
+  qt/forms/intro.ui \
+  qt/forms/openuridialog.ui \
+  qt/forms/optionsdialog.ui \
+  qt/forms/rpcconsole.ui \
+  qt/opalcoin/forms/loadingdialog.ui \
+  qt/forms/zauopcontroldialog.ui \
+  qt/opalcoin/forms/snackbar.ui \
+  qt/opalcoin/forms/navmenuwidget.ui \
+  qt/opalcoin/forms/lockunlock.ui \
+  qt/opalcoin/forms/expandablebutton.ui \
+  qt/opalcoin/forms/receivedialog.ui \
+  qt/opalcoin/forms/walletpassworddialog.ui \
+  qt/opalcoin/forms/topbar.ui \
+  qt/opalcoin/forms/txrow.ui \
+  qt/opalcoin/forms/dashboardwidget.ui \
+  qt/opalcoin/forms/coincontrolauopwidget.ui \
+  qt/opalcoin/forms/addresslabelrow.ui \
+  qt/opalcoin/forms/contactdropdownrow.ui \
+  qt/opalcoin/forms/mninfodialog.ui \
+  qt/opalcoin/forms/optionbutton.ui \
+  qt/opalcoin/forms/masternodewizarddialog.ui \
+  qt/opalcoin/forms/mnrow.ui \
+  qt/opalcoin/forms/masternodeswidget.ui \
+  qt/opalcoin/forms/myaddressrow.ui \
+  qt/opalcoin/forms/csrow.ui \
+  qt/opalcoin/forms/sendchangeaddressdialog.ui \
+  qt/opalcoin/forms/sendconfirmdialog.ui \
+  qt/opalcoin/forms/sendcustomfeedialog.ui \
+  qt/opalcoin/forms/sendchangeaddressdialog.ui \
+  qt/opalcoin/forms/sendmultirow.ui \
+  qt/opalcoin/forms/send.ui \
+  qt/opalcoin/forms/addnewaddressdialog.ui \
+  qt/opalcoin/forms/addnewcontactdialog.ui \
+  qt/opalcoin/forms/requestdialog.ui \
+  qt/opalcoin/forms/receivewidget.ui \
+  qt/opalcoin/forms/tooltipmenu.ui \
+  qt/opalcoin/forms/addresseswidget.ui \
+  qt/opalcoin/forms/defaultdialog.ui \
+  qt/opalcoin/forms/denomgenerationdialog.ui \
+  qt/opalcoin/forms/privacywidget.ui \
+  qt/opalcoin/forms/coldstakingwidget.ui \
+  qt/opalcoin/settings/forms/settingsbackupwallet.ui \
+  qt/opalcoin/settings/forms/settingsbittoolwidget.ui \
+  qt/opalcoin/settings/forms/settingsconsolewidget.ui \
+  qt/opalcoin/settings/forms/settingsdisplayoptionswidget.ui \
+  qt/opalcoin/settings/forms/settingsfaqwidget.ui \
+  qt/opalcoin/settings/forms/settingsinformationwidget.ui \
+  qt/opalcoin/settings/forms/settingsmainoptionswidget.ui \
+  qt/opalcoin/settings/forms/settingsmultisenddialog.ui \
+  qt/opalcoin/settings/forms/settingsmultisendwidget.ui \
+  qt/opalcoin/settings/forms/settingssignmessagewidgets.ui \
+  qt/opalcoin/settings/forms/settingswalletoptionswidget.ui \
+  qt/opalcoin/settings/forms/settingswalletrepairwidget.ui \
+  qt/opalcoin/settings/forms/settingswidget.ui \
+  qt/opalcoin/forms/welcomecontentwidget.ui \
+  qt/opalcoin/forms/splash.ui
+
+QT_MOC_CPP = \
+  qt/moc_addressbookpage.cpp \
+  qt/moc_addresstablemodel.cpp \
+  qt/moc_askpassphrasedialog.cpp \
+  qt/moc_bantablemodel.cpp \
+  qt/moc_bitcoinaddressvalidator.cpp \
+  qt/moc_bitcoinamountfield.cpp \
+  qt/opalcoin/moc_opalcoingui.cpp \
+  qt/moc_bitcoinunits.cpp \
+  qt/moc_blockexplorer.cpp \
+  qt/moc_clientmodel.cpp \
+  qt/moc_coincontroldialog.cpp \
+  qt/moc_coincontroltreewidget.cpp \
+  qt/moc_csvmodelwriter.cpp \
+  qt/moc_editaddressdialog.cpp \
+  qt/moc_governancepage.cpp \
+  qt/moc_guiutil.cpp \
+  qt/moc_intro.cpp \
+  qt/moc_macdockiconhandler.cpp \
+  qt/moc_macnotificationhandler.cpp \
+  qt/moc_notificator.cpp \
+  qt/moc_openuridialog.cpp \
+  qt/moc_optionsdialog.cpp \
+  qt/moc_optionsmodel.cpp \
+  qt/moc_peertablemodel.cpp \
+  qt/moc_paymentserver.cpp \
+  qt/moc_qvalidatedlineedit.cpp \
+  qt/moc_qvaluecombobox.cpp \
+  qt/moc_proposalframe.cpp \
+  qt/moc_recentrequeststablemodel.cpp \
+  qt/moc_rpcconsole.cpp \
+  qt/moc_splashscreen.cpp \
+  qt/moc_trafficgraphwidget.cpp \
+  qt/moc_transactiondesc.cpp \
+  qt/moc_transactionfilterproxy.cpp \
+  qt/moc_transactiontablemodel.cpp \
+  qt/moc_utilitydialog.cpp \
+  qt/moc_walletmodel.cpp \
+  qt/opalcoin/moc_loadingdialog.cpp \
+  qt/moc_zauopcontroldialog.cpp \
+  qt/opalcoin/moc_pwidget.cpp \
+  qt/opalcoin/moc_snackbar.cpp \
+  qt/opalcoin/moc_navmenuwidget.cpp \
+  qt/opalcoin/moc_lockunlock.cpp \
+  qt/opalcoin/moc_expandablebutton.cpp \
+  qt/opalcoin/moc_furabstractlistitemdelegate.cpp \
+  qt/opalcoin/moc_receivedialog.cpp \
+  qt/opalcoin/moc_walletpassworddialog.cpp \
+  qt/opalcoin/moc_pfborderimage.cpp \
+  qt/opalcoin/moc_topbar.cpp \
+  qt/opalcoin/moc_txrow.cpp \
+  qt/opalcoin/moc_dashboardwidget.cpp \
+  qt/opalcoin/moc_coincontrolauopwidget.cpp \
+  qt/opalcoin/moc_addresslabelrow.cpp \
+  qt/opalcoin/moc_contactdropdownrow.cpp \
+  qt/opalcoin/moc_mninfodialog.cpp \
+  qt/opalcoin/moc_optionbutton.cpp \
+  qt/opalcoin/moc_coldstakingmodel.cpp \
+  qt/opalcoin/moc_mnmodel.cpp \
+  qt/opalcoin/moc_masternodewizarddialog.cpp \
+  qt/opalcoin/moc_mnrow.cpp \
+  qt/opalcoin/moc_masternodeswidget.cpp \
+  qt/opalcoin/moc_myaddressrow.cpp \
+  qt/opalcoin/moc_csrow.cpp \
+  qt/opalcoin/moc_contactsdropdown.cpp \
+  qt/opalcoin/moc_sendchangeaddressdialog.cpp \
+  qt/opalcoin/moc_sendconfirmdialog.cpp \
+  qt/opalcoin/moc_sendcustomfeedialog.cpp \
+  qt/opalcoin/moc_sendchangeaddressdialog.cpp \
+  qt/opalcoin/moc_sendmultirow.cpp \
+  qt/opalcoin/moc_send.cpp \
+  qt/opalcoin/moc_addnewaddressdialog.cpp \
+  qt/opalcoin/moc_addnewcontactdialog.cpp \
+  qt/opalcoin/moc_requestdialog.cpp \
+  qt/opalcoin/moc_receivewidget.cpp \
+  qt/opalcoin/moc_tooltipmenu.cpp \
+  qt/opalcoin/moc_addresseswidget.cpp \
+  qt/opalcoin/moc_defaultdialog.cpp \
+  qt/opalcoin/moc_denomgenerationdialog.cpp \
+  qt/opalcoin/moc_privacywidget.cpp \
+  qt/opalcoin/moc_coldstakingwidget.cpp \
+  qt/opalcoin/settings/moc_settingsbackupwallet.cpp \
+  qt/opalcoin/settings/moc_settingsbittoolwidget.cpp \
+  qt/opalcoin/settings/moc_settingsconsolewidget.cpp \
+  qt/opalcoin/settings/moc_settingsdisplayoptionswidget.cpp \
+  qt/opalcoin/settings/moc_settingsfaqwidget.cpp \
+  qt/opalcoin/settings/moc_settingsinformationwidget.cpp \
+  qt/opalcoin/settings/moc_settingsmainoptionswidget.cpp \
+  qt/opalcoin/settings/moc_settingsmultisenddialog.cpp \
+  qt/opalcoin/settings/moc_settingsmultisendwidget.cpp \
+  qt/opalcoin/settings/moc_settingssignmessagewidgets.cpp \
+  qt/opalcoin/settings/moc_settingswalletoptionswidget.cpp \
+  qt/opalcoin/settings/moc_settingswalletrepairwidget.cpp \
+  qt/opalcoin/settings/moc_settingswidget.cpp \
+  qt/opalcoin/moc_welcomecontentwidget.cpp \
+  qt/opalcoin/moc_splash.cpp
+
+BITCOIN_MM = \
+  qt/macdockiconhandler.mm \
+  qt/macnotificationhandler.mm
+
+QT_MOC = \
+  qt/opalcoin.moc \
+  qt/bitcoinamountfield.moc \
+  qt/intro.moc \
+  qt/rpcconsole.moc \
+  qt/opalcoin/settings/moc_settingsconsolewidget.cpp
+
+QT_QRC_CPP = qt/qrc_opalcoin.cpp
+QT_QRC = qt/opalcoin.qrc
+QT_QRC_LOCALE_CPP = qt/qrc_opalcoin_locale.cpp
+QT_QRC_LOCALE = qt/opalcoin_locale.qrc
+
+PROTOBUF_CC = qt/paymentrequest.pb.cc
+PROTOBUF_H = qt/paymentrequest.pb.h
+PROTOBUF_PROTO = qt/paymentrequest.proto
+
+BITCOIN_QT_H = \
+  qt/addressbookpage.h \
+  qt/addresstablemodel.h \
+  qt/askpassphrasedialog.h \
+  qt/bantablemodel.h \
+  qt/bitcoinaddressvalidator.h \
+  qt/bitcoinamountfield.h \
+  qt/opalcoin/opalcoingui.h \
+  qt/bitcoinunits.h \
+  qt/blockexplorer.h \
+  qt/clientmodel.h \
+  qt/coincontroldialog.h \
+  qt/coincontroltreewidget.h \
+  qt/csvmodelwriter.h \
+  qt/editaddressdialog.h \
+  qt/governancepage.h \
+  qt/guiconstants.h \
+  qt/guiutil.h \
+  qt/intro.h \
+  qt/macdockiconhandler.h \
+  qt/macnotificationhandler.h \
+  qt/networkstyle.h \
+  qt/notificator.h \
+  qt/openuridialog.h \
+  qt/optionsdialog.h \
+  qt/optionsmodel.h \
+  qt/paymentrequestplus.h \
+  qt/paymentserver.h \
+  qt/peertablemodel.h \
+  qt/platformstyle.h \
+  qt/proposalframe.h \
+  qt/qvalidatedlineedit.h \
+  qt/qvaluecombobox.h \
+  qt/recentrequeststablemodel.h \
+  qt/rpcconsole.h \
+  qt/splashscreen.h \
+  qt/trafficgraphwidget.h \
+  qt/transactiondesc.h \
+  qt/transactionfilterproxy.h \
+  qt/transactionrecord.h \
+  qt/transactiontablemodel.h \
+  qt/utilitydialog.h \
+  qt/walletmodel.h \
+  qt/walletmodeltransaction.h \
+  qt/opalcoin/prunnable.h \
+  qt/opalcoin/pfborderimage.h \
+  qt/opalcoin/loadingdialog.h \
+  qt/winshutdownmonitor.h \
+  qt/zauopcontroldialog.h \
+  qt/opalcoin/pwidget.h \
+  qt/opalcoin/guitransactionsutils.h \
+  qt/opalcoin/snackbar.h \
+  qt/opalcoin/navmenuwidget.h \
+  qt/opalcoin/lockunlock.h \
+  qt/opalcoin/receivedialog.h \
+  qt/opalcoin/furlistrow.h \
+  qt/opalcoin/furabstractlistitemdelegate.h \
+  qt/opalcoin/txviewholder.h \
+  qt/opalcoin/qtutils.h \
+  qt/opalcoin/expandablebutton.h \
+  qt/opalcoin/walletpassworddialog.h \
+  qt/opalcoin/topbar.h \
+  qt/opalcoin/txrow.h \
+  qt/opalcoin/addressholder.h \
+  qt/opalcoin/addressfilterproxymodel.h \
+  qt/opalcoin/dashboardwidget.h \
+  qt/opalcoin/coincontrolauopwidget.h \
+  qt/opalcoin/addresslabelrow.h \
+  qt/opalcoin/contactdropdownrow.h \
+  qt/opalcoin/mninfodialog.h \
+  qt/opalcoin/optionbutton.h \
+  qt/opalcoin/coldstakingmodel.h \
+  qt/opalcoin/mnmodel.h \
+  qt/opalcoin/masternodewizarddialog.h \
+  qt/opalcoin/mnrow.h \
+  qt/opalcoin/masternodeswidget.h \
+  qt/opalcoin/myaddressrow.h \
+  qt/opalcoin/csrow.h \
+  qt/opalcoin/contactsdropdown.h \
+  qt/opalcoin/sendchangeaddressdialog.h \
+  qt/opalcoin/sendconfirmdialog.h \
+  qt/opalcoin/sendcustomfeedialog.h \
+  qt/opalcoin/sendchangeaddressdialog.h \
+  qt/opalcoin/sendmultirow.h \
+  qt/opalcoin/send.h \
+  qt/opalcoin/addnewaddressdialog.h \
+  qt/opalcoin/addnewcontactdialog.h \
+  qt/opalcoin/requestdialog.h \
+  qt/opalcoin/receivewidget.h \
+  qt/opalcoin/tooltipmenu.h \
+  qt/opalcoin/addresseswidget.h \
+  qt/opalcoin/defaultdialog.h \
+  qt/opalcoin/denomgenerationdialog.h \
+  qt/opalcoin/privacywidget.h \
+  qt/opalcoin/coldstakingwidget.h \
+  qt/opalcoin/settings/settingsbackupwallet.h \
+  qt/opalcoin/settings/settingsbittoolwidget.h \
+  qt/opalcoin/settings/settingsconsolewidget.h \
+  qt/opalcoin/settings/settingsdisplayoptionswidget.h \
+  qt/opalcoin/settings/settingsfaqwidget.h \
+  qt/opalcoin/settings/settingsinformationwidget.h \
+  qt/opalcoin/settings/settingsmainoptionswidget.h \
+  qt/opalcoin/settings/settingsmultisenddialog.h \
+  qt/opalcoin/settings/settingsmultisendwidget.h \
+  qt/opalcoin/settings/settingssignmessagewidgets.h \
+  qt/opalcoin/settings/settingswalletoptionswidget.h \
+  qt/opalcoin/settings/settingswalletrepairwidget.h \
+  qt/opalcoin/settings/settingswidget.h \
+  qt/opalcoin/welcomecontentwidget.h \
+  qt/opalcoin/splash.h
+
+RES_ICONS = \
+  qt/res/icons/add.png \
+  qt/res/icons/address-book.png \
+  qt/res/icons/automint_active.png \
+  qt/res/icons/automint_inactive.png \
+  qt/res/icons/bitcoin.ico \
+  qt/res/icons/bitcoin.png \
+  qt/res/icons/bitcoin_testnet.ico \
+  qt/res/icons/bitcoin_testnet.png \
+  qt/res/icons/bitcoin_regtest.png \
+  qt/res/icons/browse.png \
+  qt/res/icons/clock1.png \
+  qt/res/icons/clock2.png \
+  qt/res/icons/clock3.png \
+  qt/res/icons/clock4.png \
+  qt/res/icons/clock5.png \
+  qt/res/icons/configure.png \
+  qt/res/icons/connect0_16.png \
+  qt/res/icons/connect1_16.png \
+  qt/res/icons/connect2_16.png \
+  qt/res/icons/connect3_16.png \
+  qt/res/icons/connect4_16.png \
+  qt/res/icons/debugwindow.png \
+  qt/res/icons/edit.png \
+  qt/res/icons/editcopy.png \
+  qt/res/icons/editpaste.png \
+  qt/res/icons/explorer.png \
+  qt/res/icons/export.png \
+  qt/res/icons/eye.png \
+  qt/res/icons/eye_minus.png \
+  qt/res/icons/eye_plus.png \
+  qt/res/icons/filesave.png \
+  qt/res/icons/history.png \
+  qt/res/icons/key.png \
+  qt/res/icons/lock_closed.png \
+  qt/res/icons/lock_open.png \
+  qt/res/icons/masternodes.png \
+  qt/res/icons/onion.png \
+  qt/res/icons/overview.png \
+  qt/res/icons/qrcode.png \
+  qt/res/icons/quit.png \
+  qt/res/icons/receive.png \
+  qt/res/icons/receive_dark.png \
+  qt/res/icons/privacy.png \
+  qt/res/icons/remove.png \
+  qt/res/icons/send.png \
+  qt/res/icons/send_dark.png \
+  qt/res/icons/governance.png \
+  qt/res/icons/governance_dark.png \
+  qt/res/icons/staking_active.png \
+  qt/res/icons/staking_inactive.png \
+  qt/res/icons/synced.png \
+  qt/res/icons/trade.png \
+  qt/res/icons/transaction0.png \
+  qt/res/icons/transaction2.png \
+  qt/res/icons/transaction_conflicted.png \
+  qt/res/icons/tx_inout.png \
+  qt/res/icons/tx_input.png \
+  qt/res/icons/tx_output.png \
+  qt/res/icons/tx_mined.png \
+  qt/res/icons/ic-transaction-received.png \
+  qt/res/icons/ic-transaction-mint.png \
+  qt/res/icons/ic-transaction-sent.png \
+  qt/res/icons/ic-transaction-staked.png \
+  qt/res/icons/unit_opalcoin.png \
+  qt/res/icons/unit_mopalcoin.png \
+  qt/res/icons/unit_uopalcoin.png \
+  qt/res/icons/unit_topalcoin.png \
+  qt/res/icons/unit_tmopalcoin.png \
+  qt/res/icons/unit_tuopalcoin.png \
+  qt/res/icons/yesvote.png \
+  qt/res/icons/novote.png \
+  qt/res/icons/abstainvote.png \
+  qt/opalcoin/res/img/bg-dashboard-banner.png \
+  qt/opalcoin/res/img/bg-multi-number-dark.png \
+  qt/opalcoin/res/img/ic-check-locked.png \
+  qt/opalcoin/res/img/ic-nav-address.png \
+  qt/opalcoin/res/img/ic-update.png \
+  qt/opalcoin/res/img/bg-multi-number.png \
+  qt/opalcoin/res/img/ic-check-mint-off.png \
+  qt/opalcoin/res/img/ic-nav-cold-staking.png \
+  qt/opalcoin/res/img/ic-nav-cold-staking-active.png \
+  qt/opalcoin/res/img/ic-nav-dashboard-active.png \
+  qt/opalcoin/res/img/ic-wallet-status-locked.png \
+  qt/opalcoin/res/img/bg-splash.png \
+  qt/opalcoin/res/img/bg-splash.png \
+  qt/opalcoin/res/img/ic-check-mint.png \
+  qt/opalcoin/res/img/ic-nav-dashboard-hover.png \
+  qt/opalcoin/res/img/ic-wallet-status-staking.png \
+  qt/opalcoin/res/img/ic-check-peers-off.png \
+  qt/opalcoin/res/img/ic-nav-dashboard.png \
+  qt/opalcoin/res/img/ic-wallet-status-unlocked.png \
+  qt/opalcoin/res/img/ic-check-peers.png \
+  qt/opalcoin/res/img/ic-nav-master-active.png \
+  qt/opalcoin/res/img/ic-watch-password-white.png \
+  qt/opalcoin/res/img/bg-welcome-container.png \
+  qt/opalcoin/res/img/ic-check-staking-off.png \
+  qt/opalcoin/res/img/ic-nav-master-hover.png \
+  qt/opalcoin/res/img/ic-watch-password.png \
+  qt/opalcoin/res/img/bg-welcome.png \
+  qt/opalcoin/res/img/ic-check-staking.png \
+  qt/opalcoin/res/img/ic-nav-master.png \
+  qt/opalcoin/res/img/btn-radio-active.png \
+  qt/opalcoin/res/img/ic-check-sync-off.png \
+  qt/opalcoin/res/img/ic-nav-privacy-active.png \
+  qt/opalcoin/res/img/img-empty-contacts.png \
+  qt/opalcoin/res/img/btn-radio-off.png \
+  qt/opalcoin/res/img/ic-check-sync.png \
+  qt/opalcoin/res/img/ic-nav-privacy-hover.png \
+  qt/opalcoin/res/img/img-empty-dark-contacts.png \
+  qt/opalcoin/res/img/ic-contact-arrow-down.png \
+  qt/opalcoin/res/img/ic-contact-arrow-down-white.png \
+  qt/opalcoin/res/img/ic-check-sync.png \
+  qt/opalcoin/res/img/ic-check-faq.png \
+  qt/opalcoin/res/img/ic-nav-privacy.png \
+  qt/opalcoin/res/img/img-empty-dark-error.png \
+  qt/opalcoin/res/img/ic-add-label.png \
+  qt/opalcoin/res/img/ic-pending.png \
+  qt/opalcoin/res/img/ic-check-theme-dark.png \
+  qt/opalcoin/res/img/ic-nav-receive-active.png \
+  qt/opalcoin/res/img/img-empty-dark-masternode.png \
+  qt/opalcoin/res/img/ic-add-liliac.png \
+  qt/opalcoin/res/img/ic-check-theme-light.png \
+  qt/opalcoin/res/img/ic-nav-receive-hover.png \
+  qt/opalcoin/res/img/img-empty-dark-multisend.png \
+  qt/opalcoin/res/img/ic-add-purple.png \
+  qt/opalcoin/res/img/ic-check-white.png \
+  qt/opalcoin/res/img/ic-nav-receive.png \
+  qt/opalcoin/res/img/img-empty-dark-peers.png \
+  qt/opalcoin/res/img/ic-add.png \
+  qt/opalcoin/res/img/ic-check.png \
+  qt/opalcoin/res/img/ic-nav-send-active.png \
+  qt/opalcoin/res/img/img-empty-dark-staking-off.png \
+  qt/opalcoin/res/img/img-empty-dark-staking-on.png \
+  qt/opalcoin/res/img/ic-address-book-grey.png \
+  qt/opalcoin/res/img/ic-chevron-left.png \
+  qt/opalcoin/res/img/ic-nav-send-hover.png \
+  qt/opalcoin/res/img/img-empty-dark-transactions.png \
+  qt/opalcoin/res/img/ic-address-book-white.png \
+  qt/opalcoin/res/img/ic-chevron-right.png \
+  qt/opalcoin/res/img/ic-nav-send.png \
+  qt/opalcoin/res/img/img-empty-error.png \
+  qt/opalcoin/res/img/ic-address-book.png \
+  qt/opalcoin/res/img/ic-clear-liliac.png \
+  qt/opalcoin/res/img/ic-nav-settings-active.png \
+  qt/opalcoin/res/img/img-empty-masternode.png \
+  qt/opalcoin/res/img/ic-address-send-white.png \
+  qt/opalcoin/res/img/ic-clear-purple.png \
+  qt/opalcoin/res/img/ic-nav-settings-hover.png \
+  qt/opalcoin/res/img/img-empty-multisend.png \
+  qt/opalcoin/res/img/ic-address-send.png \
+  qt/opalcoin/res/img/ic-close-white.png \
+  qt/opalcoin/res/img/ic-nav-settings.png \
+  qt/opalcoin/res/img/img-empty-peers.png \
+  qt/opalcoin/res/img/img-empty-privacy.png \
+  qt/opalcoin/res/img/img-empty-privacy-dark.png \
+  qt/opalcoin/res/img/ic-arrow-drop-down-white.png \
+  qt/opalcoin/res/img/ic-close.png \
+  qt/opalcoin/res/img/ic-radio-liliac-on.png \
+  qt/opalcoin/res/img/img-empty-staking-off.png \
+  qt/opalcoin/res/img/ic-arrow-drop-down.png \
+  qt/opalcoin/res/img/ic-coin-auop.png \
+  qt/opalcoin/res/img/ic-receive-off.png \
+  qt/opalcoin/res/img/img-empty-staking-on.png \
+  qt/opalcoin/res/img/ic-arrow-drop-up-white.png \
+  qt/opalcoin/res/img/ic-coin-zauop.png \
+  qt/opalcoin/res/img/ic-receive-on.png \
+  qt/opalcoin/res/img/img-empty-transactions.png \
+  qt/opalcoin/res/img/ic-arrow-drop-up.png \
+  qt/opalcoin/res/img/ic-coin-zauop.png \
+  qt/opalcoin/res/img/ic-received.png \
+  qt/opalcoin/res/img/img-logo-opalcoin.png \
+  qt/opalcoin/res/img/ic-arrow-drop-white-down.png \
+  qt/opalcoin/res/img/ic-combo-box.png \
+  qt/opalcoin/res/img/ic-send.png \
+  qt/opalcoin/res/img/img-logo-opalcoin@2x.png \
+  qt/opalcoin/res/img/ic-arrow-purple-down.png \
+  qt/opalcoin/res/img/ic-connect.png \
+  qt/opalcoin/res/img/ic-submenu-lock.png \
+  qt/opalcoin/res/img/img-logo-opalcoin@3x.png \
+  qt/opalcoin/res/img/img-logo-opalcoin.png \
+  qt/opalcoin/res/img/ic-arrow-right-white.png \
+  qt/opalcoin/res/img/ic-arrow-left-white.png \
+  qt/opalcoin/res/img/ic-arrow-left.png \
+  qt/opalcoin/res/img/ic-copy-liliac.png \
+  qt/opalcoin/res/img/ic-submenu-staking.png \
+  qt/opalcoin/res/img/img-nav-logo-opalcoin.png \
+  qt/opalcoin/res/img/ic-arrow-right.png \
+  qt/opalcoin/res/img/ic-copy.png \
+  qt/opalcoin/res/img/ic-copy-big.png \
+  qt/opalcoin/res/img/ic-copy-big-white.png \
+  qt/opalcoin/res/img/ic-submenu-unlock.png \
+  qt/opalcoin/res/img/img-nav-logo.png \
+  qt/opalcoin/res/img/ic-arrow-white-left.png \
+  qt/opalcoin/res/img/ic-exit.png \
+  qt/opalcoin/res/img/ic-switch-liliac-on.png \
+  qt/opalcoin/res/img/img-nav-logo.png \
+  qt/opalcoin/res/img/ic-arrow-white-right.png \
+  qt/opalcoin/res/img/ic-expand.png \
+  qt/opalcoin/res/img/ic-switch-off.png \
+  qt/opalcoin/res/img/img-qr-test-big.png \
+  qt/opalcoin/res/img/ic-check-active.png \
+  qt/opalcoin/res/img/ic-folder.png \
+  qt/opalcoin/res/img/ic-switch-on.png \
+  qt/opalcoin/res/img/img-qr-test.png \
+  qt/opalcoin/res/img/ic-check-box.png \
+  qt/opalcoin/res/img/ic-check-box-dark-active.png \
+  qt/opalcoin/res/img/ic-check-box-indeterminate.png \
+  qt/opalcoin/res/img/ic-check-box-liliac-indeterminate.png \
+  qt/opalcoin/res/img/ic-label-liliac.png \
+  qt/opalcoin/res/img/ic-transaction-warning.png \
+  qt/opalcoin/res/img/ic-transaction-mint.png \
+  qt/opalcoin/res/img/ic-transaction-mint-inactive.png \
+  qt/opalcoin/res/img/ic-check-cold-staking.png \
+  qt/opalcoin/res/img/ic-check-cold-staking-off.png \
+  qt/opalcoin/res/img/ic-check-cold-staking-enabled.png \
+  qt/opalcoin/res/img/dark/ic-transaction-cs-contract.png \
+  qt/opalcoin/res/img/dark/ic-transaction-cs-contract-inactive.png \
+  qt/opalcoin/res/img/img-qr.png \
+  qt/opalcoin/res/img/ic-check-connect-off.png \
+  qt/opalcoin/res/img/ic-label.png \
+  qt/opalcoin/res/img/ic-transaction-received.png \
+  qt/opalcoin/res/img/dark/ic-transaction-received.png \
+  qt/opalcoin/res/img/dark/ic-transaction-warning.png \
+  qt/opalcoin/res/img/dark/ic-transaction-mint.png \
+  qt/opalcoin/res/img/dark/ic-transaction-mint-inactive.png \
+  qt/opalcoin/res/img/ic-transaction-received-inactive.png \
+  qt/opalcoin/res/img/dark/ic-transaction-received-inactive.png \
+  qt/opalcoin/res/img/img-welcome-step1.png \
+  qt/opalcoin/res/img/ic-check-connect.png \
+  qt/opalcoin/res/img/ic-menu-hover.png \
+  qt/opalcoin/res/img/ic-transaction-sent.png \
+  qt/opalcoin/res/img/ic-transaction-sent-inactive.png \
+  qt/opalcoin/res/img/dark/ic-transaction-sent.png \
+  qt/opalcoin/res/img/dark/ic-transaction-sent-inactive.png \
+  qt/opalcoin/res/img/img-welcome-step2.png \
+  qt/opalcoin/res/img/ic-check-dark.png \
+  qt/opalcoin/res/img/ic-mint.png \
+  qt/opalcoin/res/img/ic-transaction-staked.png \
+  qt/opalcoin/res/img/ic-transaction-staked-inactive.png \
+  qt/opalcoin/res/img/dark/ic-transaction-staked.png \
+  qt/opalcoin/res/img/dark/ic-transaction-staked-inactive.png \
+  qt/opalcoin/res/img/img-welcome-step3.png \
+  qt/opalcoin/res/img/ic-check-liliac-on.png \
+  qt/opalcoin/res/img/ic-nav-address-active.png \
+  qt/opalcoin/res/img/ic-unlock-staking.png \
+  qt/opalcoin/res/img/img-welcome-step4.png \
+  qt/opalcoin/res/img/ic-check-locked-off.png \
+  qt/opalcoin/res/img/ic-nav-address-hover.png \
+  qt/opalcoin/res/img/ic-update-liliac.png \
+  qt/opalcoin/res/img/ic-arrow-drop-down-purple.png \
+  qt/opalcoin/res/img/ic-arrow-drop-up-purple.png \
+  qt/opalcoin/res/img/ic-check-liliac-indeterminate.png \
+  qt/opalcoin/res/img/ic-check-box-liliac-indeterminate.png \
+  qt/opalcoin/res/img/ic-transaction-stake-delegated.png \
+  qt/opalcoin/res/img/ic-transaction-stake-delegated-inactive.png \
+  qt/opalcoin/res/img/ic-transaction-stake-hot.png \
+  qt/opalcoin/res/img/ic-transaction-stake-hot-inactive.png \
+  qt/opalcoin/res/img/dark/ic-transaction-stake-hot.png \
+  qt/opalcoin/res/img/dark/ic-transaction-stake-hot-inactive.png \
+  qt/opalcoin/res/img/dark/ic-transaction-stake-delegated.png \
+  qt/opalcoin/res/img/dark/ic-transaction-stake-delegated-inactive.png \
+  qt/opalcoin/res/img/ic-transaction-cs-contract.png \
+  qt/opalcoin/res/img/ic-transaction-cs-contract-inactive.png \
+  qt/opalcoin/res/img/ic-check-box-indeterminate.png \
+  qt/opalcoin/res/img/ani-loading-dark.gif \
+  qt/opalcoin/res/img/ani-loading.gif
+
+
+
+BITCOIN_QT_BASE_CPP = \
+  qt/bantablemodel.cpp \
+  qt/bitcoinaddressvalidator.cpp \
+  qt/bitcoinamountfield.cpp \
+  qt/opalcoin/opalcoingui.cpp \
+  qt/bitcoinunits.cpp \
+  qt/blockexplorer.cpp \
+  qt/clientmodel.cpp \
+  qt/csvmodelwriter.cpp \
+  qt/guiutil.cpp \
+  qt/intro.cpp \
+  qt/networkstyle.cpp \
+  qt/notificator.cpp \
+  qt/optionsdialog.cpp \
+  qt/optionsmodel.cpp \
+  qt/peertablemodel.cpp \
+  qt/platformstyle.cpp \
+  qt/qvalidatedlineedit.cpp \
+  qt/qvaluecombobox.cpp \
+  qt/rpcconsole.cpp \
+  qt/splashscreen.cpp \
+  qt/trafficgraphwidget.cpp \
+  qt/utilitydialog.cpp
+
+BITCOIN_QT_WINDOWS_CPP = qt/winshutdownmonitor.cpp
+
+BITCOIN_QT_WALLET_CPP = \
+  qt/addressbookpage.cpp \
+  qt/addresstablemodel.cpp \
+  qt/askpassphrasedialog.cpp \
+  qt/blockexplorer.cpp \
+  qt/coincontroldialog.cpp \
+  qt/coincontroltreewidget.cpp \
+  qt/editaddressdialog.cpp \
+  qt/governancepage.cpp \
+  qt/openuridialog.cpp \
+  qt/paymentrequestplus.cpp \
+  qt/paymentserver.cpp \
+  qt/proposalframe.cpp \
+  qt/recentrequeststablemodel.cpp \
+  qt/transactiondesc.cpp \
+  qt/transactionfilterproxy.cpp \
+  qt/transactionrecord.cpp \
+  qt/transactiontablemodel.cpp \
+  qt/walletmodel.cpp \
+  qt/walletmodeltransaction.cpp \
+  qt/opalcoin/loadingdialog.cpp \
+  qt/zauopcontroldialog.cpp \
+  qt/opalcoin/pwidget.cpp \
+  qt/opalcoin/guitransactionsutils.cpp \
+  qt/opalcoin/snackbar.cpp \
+  qt/opalcoin/navmenuwidget.cpp \
+  qt/opalcoin/lockunlock.cpp \
+  qt/opalcoin/receivedialog.cpp \
+  qt/opalcoin/furabstractlistitemdelegate.cpp \
+  qt/opalcoin/txviewholder.cpp \
+  qt/opalcoin/qtutils.cpp \
+  qt/opalcoin/expandablebutton.cpp \
+  qt/opalcoin/walletpassworddialog.cpp \
+  qt/opalcoin/topbar.cpp \
+  qt/opalcoin/txrow.cpp \
+  qt/opalcoin/addressholder.cpp \
+  qt/opalcoin/addressfilterproxymodel.cpp \
+  qt/opalcoin/dashboardwidget.cpp \
+  qt/opalcoin/coincontrolauopwidget.cpp \
+  qt/opalcoin/addresslabelrow.cpp \
+  qt/opalcoin/contactdropdownrow.cpp \
+  qt/opalcoin/contactsdropdown.cpp \
+  qt/opalcoin/optionbutton.cpp \
+  qt/opalcoin/mninfodialog.cpp \
+  qt/opalcoin/coldstakingmodel.cpp \
+  qt/opalcoin/mnmodel.cpp \
+  qt/opalcoin/masternodewizarddialog.cpp \
+  qt/opalcoin/mnrow.cpp \
+  qt/opalcoin/masternodeswidget.cpp \
+  qt/opalcoin/myaddressrow.cpp \
+  qt/opalcoin/csrow.cpp \
+  qt/opalcoin/sendchangeaddressdialog.cpp \
+  qt/opalcoin/sendconfirmdialog.cpp \
+  qt/opalcoin/sendcustomfeedialog.cpp \
+  qt/opalcoin/sendchangeaddressdialog.cpp \
+  qt/opalcoin/sendmultirow.cpp \
+  qt/opalcoin/send.cpp \
+  qt/opalcoin/addnewaddressdialog.cpp \
+  qt/opalcoin/addnewcontactdialog.cpp \
+  qt/opalcoin/requestdialog.cpp \
+  qt/opalcoin/receivewidget.cpp \
+  qt/opalcoin/tooltipmenu.cpp \
+  qt/opalcoin/addresseswidget.cpp \
+  qt/opalcoin/defaultdialog.cpp \
+  qt/opalcoin/denomgenerationdialog.cpp \
+  qt/opalcoin/privacywidget.cpp \
+  qt/opalcoin/coldstakingwidget.cpp \
+  qt/opalcoin/settings/settingsbackupwallet.cpp \
+  qt/opalcoin/settings/settingsbittoolwidget.cpp \
+  qt/opalcoin/settings/settingsconsolewidget.cpp \
+  qt/opalcoin/settings/settingsdisplayoptionswidget.cpp \
+  qt/opalcoin/settings/settingsfaqwidget.cpp \
+  qt/opalcoin/settings/settingsinformationwidget.cpp \
+  qt/opalcoin/settings/settingsmainoptionswidget.cpp \
+  qt/opalcoin/settings/settingsmultisenddialog.cpp \
+  qt/opalcoin/settings/settingsmultisendwidget.cpp \
+  qt/opalcoin/settings/settingssignmessagewidgets.cpp \
+  qt/opalcoin/settings/settingswalletoptionswidget.cpp \
+  qt/opalcoin/settings/settingswalletrepairwidget.cpp \
+  qt/opalcoin/settings/settingswidget.cpp \
+  qt/opalcoin/welcomecontentwidget.cpp \
+  qt/opalcoin/splash.cpp
+
+
+BITCOIN_QT_CPP = $(BITCOIN_QT_BASE_CPP)
+if TARGET_WINDOWS
+BITCOIN_QT_CPP += $(BITCOIN_QT_WINDOWS_CPP)
+endif
+if ENABLE_WALLET
+BITCOIN_QT_CPP += $(BITCOIN_QT_WALLET_CPP)
+endif
+
+RES_IMAGES = \
+  qt/res/images/about.png \
+  qt/res/images/splash.png \
+  qt/res/images/splash_testnet.png \
+  qt/res/images/splash_regtest.png \
+  qt/res/images/opalcoin_logo_horizontal.png \
+  qt/res/images/downArrow_dark.png \
+  qt/res/images/downArrow_small_dark.png \
+  qt/res/images/downArrow_small.png \
+  qt/res/images/upArrow_small_dark.png \
+  qt/res/images/upArrow_small.png \
+  qt/res/images/leftArrow_small_dark.png \
+  qt/res/images/rightArrow_small_dark.png \
+  qt/res/images/qtreeview_selected.png
+
+RES_CSS = \
+  qt/res/css/default.css \
+  qt/opalcoin/res/css/style_dark.css \
+  qt/opalcoin/res/css/style_light.css
+
+RES_MOVIES = $(wildcard $(srcdir)/qt/res/movies/spinner-*.png)
+
+BITCOIN_RC = qt/res/opalcoin-qt-res.rc
+
+BITCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
+  -I$(builddir)/qt/forms
+
+qt_libbitcoinqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+  $(QT_INCLUDES) $(QT_DBUS_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS) $(SVG_CFLAGS) $(CHARTS_CFLAGS)
+qt_libbitcoinqt_a_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+qt_libbitcoinqt_a_OBJCXXFLAGS = $(AM_OBJCXXFLAGS) $(QT_PIE_FLAGS)
+
+qt_libbitcoinqt_a_SOURCES = $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(QT_FORMS_UI) \
+  $(QT_QRC) $(QT_QRC_LOCALE) $(QT_TS) $(PROTOBUF_PROTO) $(RES_ICONS) $(RES_IMAGES) $(RES_CSS) $(RES_MOVIES)
+
+nodist_qt_libbitcoinqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
+  $(PROTOBUF_H) $(QT_QRC_CPP) $(QT_QRC_LOCALE_CPP)
+
+# forms/foo.h -> forms/ui_foo.h
+QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:.ui=.h))))
+
+# Most files will depend on the forms and moc files as includes. Generate them
+# before anything else.
+$(QT_MOC): $(QT_FORMS_H)
+$(qt_libbitcoinqt_a_OBJECTS) $(qt_opalcoin_qt_OBJECTS) : | $(QT_MOC)
+
+#Generating these with a half-written protobuf header leads to wacky results.
+#This makes sure it's done.
+$(QT_MOC): $(PROTOBUF_H)
+$(QT_MOC_CPP): $(PROTOBUF_H)
+
+# opalcoin-qt binary #
+qt_opalcoin_qt_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+  $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS) $(SVG_CFLAGS) $(CHARTS_CFLAGS)
+qt_opalcoin_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+
+qt_opalcoin_qt_SOURCES = qt/opalcoin.cpp
+if TARGET_DARWIN
+  qt_opalcoin_qt_SOURCES += $(BITCOIN_MM)
+endif
+if TARGET_WINDOWS
+  qt_opalcoin_qt_SOURCES += $(BITCOIN_RC)
+endif
+qt_opalcoin_qt_LDADD = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
+if ENABLE_WALLET
+qt_opalcoin_qt_LDADD += $(LIBBITCOIN_UTIL) $(LIBBITCOIN_WALLET)
+endif
+if ENABLE_ZMQ
+qt_opalcoin_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+endif
+qt_opalcoin_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBBITCOIN_ZEROCOIN) $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) \
+  $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(SVG_LIBS) $(CHARTS_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) \
+  $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
+qt_opalcoin_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+qt_opalcoin_qt_LIBTOOLFLAGS = $(AM_LIBTOOLFLAGS) --tag CXX
+
+#locale/foo.ts -> locale/foo.qm
+QT_QM=$(QT_TS:.ts=.qm)
+
+SECONDARY: $(QT_QM)
+
+$(srcdir)/qt/opalcoinstrings.cpp: $(libbitcoin_server_a_SOURCES) $(libbitcoin_wallet_a_SOURCES) $(libbitcoin_common_a_SOURCES) $(libbitcoin_zmq_a_SOURCES) $(libbitcoin_util_a_SOURCES)
+	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
+	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) PACKAGE_NAME="$(PACKAGE_NAME)" $(PYTHON) ../share/qt/extract_strings_qt.py $^
+
+translate: $(srcdir)/qt/opalcoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_BASE_CPP) qt/opalcoin.cpp $(BITCOIN_QT_WINDOWS_CPP) $(BITCOIN_QT_WALLET_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
+	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts $(srcdir)/qt/locale/opalcoin_en.ts
+
+$(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
+	@test -f $(RCC)
+	@cp -f $< $(@D)/temp_$(<F)
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name opalcoin_locale $(@D)/temp_$(<F) | \
+	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
+	@rm $(@D)/temp_$(<F)
+
+$(QT_QRC_CPP): $(QT_QRC) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_CSS) $(RES_MOVIES) $(PROTOBUF_H)
+	@test -f $(RCC)
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name opalcoin $< | \
+	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
+
+CLEAN_QT = $(nodist_qt_libbitcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno qt/temp_opalcoin_locale.qrc
+
+CLEANFILES += $(CLEAN_QT)
+
+opalcoin_qt_clean: FORCE
+	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_opalcoin_qt_OBJECTS) qt/opalcoin-qt$(EXEEXT) $(LIBBITCOINQT)
+
+opalcoin_qt : qt/opalcoin-qt$(EXEEXT)
+
+ui_%.h: %.ui
+	@test -f $(UIC)
+	@$(MKDIR_P) $(@D)
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(UIC) -o $@ $< || (echo "Error creating $@"; false)
+
+%.moc: %.cpp
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(MOC) $(DEFAULT_INCLUDES) $(QT_INCLUDES) $(MOC_DEFS) $< | \
+	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
+
+moc_%.cpp: %.h
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(MOC) $(DEFAULT_INCLUDES) $(QT_INCLUDES) $(MOC_DEFS) $< | \
+	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
+
+%.qm: %.ts
+	@test -f $(LRELEASE)
+	@$(MKDIR_P) $(@D)
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LRELEASE) -silent $< -qm $@

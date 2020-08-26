@@ -1,0 +1,6 @@
+usr/local/bin/opalcoin-qt usr/bin
+share/pixmaps/opalcoin32.xpm usr/share/pixmaps
+share/pixmaps/opalcoin16.xpm usr/share/pixmaps
+share/pixmaps/opalcoin128.png usr/share/pixmaps
+debian/opalcoin-qt.desktop usr/share/applications
+debian/opalcoin-qt.protocol usr/share/kde4/services/

@@ -1,0 +1,8 @@
+/usr/bin/opalcoin-cli		--	gen_context(system_u:object_r:opalcoin_exec_t,s0)
+/usr/sbin/opalcoind		--	gen_context(system_u:object_r:opalcoin_exec_t,s0)
+/usr/lib(64)?/opalcoin/opalcoind		--	gen_context(system_u:object_r:opalcoin_exec_t,s0)
+
+/etc/opalcoin(/.*)?		gen_context(system_u:object_r:opalcoin_conf_t,s0)
+/var/lib/opalcoin(/.*)?		gen_context(system_u:object_r:opalcoin_var_lib_t,s0)
+
+(/var)?/run/opalcoind(/.*)?   gen_context(system_u:object_r:opalcoin_var_run_t,s0)

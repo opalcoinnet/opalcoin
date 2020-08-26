@@ -1,0 +1,81 @@
+policy_module(opalcoin, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type opalcoin_t;
+type opalcoin_exec_t;
+init_daemon_domain(opalcoin_t, opalcoin_exec_t)
+
+permissive opalcoin_t;
+
+type opalcoin_initrc_exec_t;
+init_script_file(opalcoin_initrc_exec_t)
+
+type opalcoin_conf_t;
+files_type(opalcoin_conf_t)
+
+type opalcoin_var_lib_t;
+files_type(opalcoin_var_lib_t)
+
+type opalcoin_var_run_t;
+files_type(opalcoin_var_run_t)
+
+type opalcoin_port_t;
+corenet_port(opalcoin_port_t)
+
+########################################
+#
+# opalcoin local policy
+#
+allow opalcoin_t self:process { fork };
+
+allow opalcoin_t self:fifo_file rw_fifo_file_perms;
+allow opalcoin_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(opalcoin_t, opalcoin_conf_t, opalcoin_conf_t)
+manage_files_pattern(opalcoin_t, opalcoin_conf_t, opalcoin_conf_t)
+
+manage_dirs_pattern(opalcoin_t, opalcoin_var_lib_t, opalcoin_var_lib_t)
+manage_files_pattern(opalcoin_t, opalcoin_var_lib_t, opalcoin_var_lib_t)
+files_var_lib_filetrans(opalcoin_t, opalcoin_var_lib_t, { dir file })
+
+manage_dirs_pattern(opalcoin_t, opalcoin_var_run_t, opalcoin_var_run_t)
+manage_files_pattern(opalcoin_t, opalcoin_var_run_t, opalcoin_var_run_t)
+
+sysnet_dns_name_resolve(opalcoin_t)
+corenet_all_recvfrom_unlabeled(opalcoin_t)
+
+allow opalcoin_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(opalcoin_t)
+corenet_tcp_sendrecv_generic_node(opalcoin_t)
+corenet_tcp_sendrecv_all_ports(opalcoin_t)
+corenet_tcp_bind_generic_node(opalcoin_t)
+
+gen_require(`
+    type opalcoin_port_t;
+')
+allow opalcoin_t opalcoin_port_t:tcp_socket name_bind;
+
+gen_require(`
+    type opalcoin_port_t;
+')
+allow opalcoin_t opalcoin_port_t:tcp_socket name_connect;
+
+domain_use_interactive_fds(opalcoin_t)
+
+files_read_etc_files(opalcoin_t)
+
+miscfiles_read_localization(opalcoin_t)
+
+sysnet_dns_name_resolve(opalcoin_t)
+
+allow opalcoin_t opalcoin_exec_t:file execute_no_trans;
+allow opalcoin_t self:process setsched;
+corecmd_exec_ls(opalcoin_t)
+corenet_tcp_connect_http_port(opalcoin_t)
+dev_read_urand(opalcoin_t)
+fs_getattr_xattr_fs(opalcoin_t)
+kernel_read_system_state(opalcoin_t)
