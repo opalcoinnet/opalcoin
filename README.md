@@ -39,17 +39,17 @@ More information at [opalcoin.net](http://www.opalcoin.net)
 
 <table>
 <th>Phase</th><th>Collateral</th><th>Block Height</th><th>Reward</th><th>Masternodes</th><th>Stakers</th>
-<tr><td>Phase 1</td><td>100 AUOP</td><td>351-5,000</td><td>2 AUOP</td><td>90% (1.8 AUOP)</td><td>10% (0.2 AUOP)</td></tr>
-<tr><td>Phase 2</td><td>350 AUOP</td><td>5,001-15,000</td><td>2.5 AUOP</td><td>90% (2.25 AUOP)</td><td>10% (0.25 AUOP)</td></tr>
-<tr><td>Phase 3</td><td>350 AUOP</td><td>15,001-25,000</td><td>3 AUOP</td><td>90% (2.7 AUOP)</td><td>10% (0.3 AUOP)</td></tr>
-<tr><td>Phase 4</td><td>500 AUOP</td><td>25,001-35,000</td><td>5 AUOP</td><td>90% (4.5 AUOP)</td><td>10% (0.5 AUOP)</td></tr>
-<tr><td>Phase 5</td><td>700 AUOP</td><td>35,001-55,000</td><td>7 AUOP</td><td>90% (6.3 AUOP)</td><td>10% (0.7 AUOP)</td></tr>
-<tr><td>Phase 6</td><td>1,000 AUOP</td><td>55,001-100,000</td><td>10 AUOP</td><td>90% (9 AUOP)</td><td>10% (1 AUOP)</td></tr>
-<tr><td>Phase 7</td><td>10,000 AUOP</td><td>100,001-110,000</td><td>45 AUOP</td><td>90% (41.5 AUOP)</td><td>10% (4.5 AUOP)</td></tr>
-<tr><td>Phase 8</td><td>12,500 AUOP</td><td>110,001-120,000</td><td>60 AUOP</td><td>90% (54 AUOP)</td><td>10% (6 AUOP)</td></tr>
-<tr><td>Phase 9</td><td>15,000 AUOP</td><td>120,001-130,000</td><td>75 AUOP</td><td>90% (67.5 AUOP)</td><td>10% (7.5 AUOP)</td></tr>
-<tr><td>Phase 10</td><td>17,500 AUOP</td><td>130,001-140,000</td><td>90 AUOP</td><td>90% (81 AUOP)</td><td>10% (9 AUOP)</td></tr>
-<tr><td>Phase 11</td><td>20,000 AUOP</td><td>140,001-160,000</td><td>105 AUOP</td><td>90% (94.5 AUOP)</td><td>10% (10.5 AUOP)</td></tr>
+<tr><td>Phase 1</td><td>250 AUOP</td><td>351-5,000</td><td>2 AUOP</td><td>90% (1.8 AUOP)</td><td>10% (0.2 AUOP)</td></tr>
+<tr><td>Phase 2</td><td>500 AUOP</td><td>5,001-10,000</td><td>2.5 AUOP</td><td>90% (2.25 AUOP)</td><td>10% (0.25 AUOP)</td></tr>
+<tr><td>Phase 3</td><td>700 AUOP</td><td>10,001-35,000</td><td>7 AUOP</td><td>90% (6.3 AUOP)</td><td>10% (0.7 AUOP)</td></tr>
+<tr><td>Phase 4</td><td>1500 AUOP</td><td>35,001-55,000</td><td>10 AUOP</td><td>90% (9 AUOP)</td><td>10% (1 AUOP)</td></tr>
+<tr><td>Phase 5</td><td>5000 AUOP</td><td>55,001-75,000</td><td>20 AUOP</td><td>90% (18 AUOP)</td><td>10% (2 AUOP)</td></tr>
+<tr><td>Phase 6</td><td>10,000 AUOP</td><td>75,001-100,000</td><td>40 AUOP</td><td>90% (36 AUOP)</td><td>10% (4 AUOP)</td></tr>
+<tr><td>Phase 7</td><td>12,500 AUOP</td><td>100,001-110,000</td><td>50 AUOP</td><td>90% (45 AUOP)</td><td>10% (5 AUOP)</td></tr>
+<tr><td>Phase 8</td><td>15,000 AUOP</td><td>110,001-120,000</td><td>60 AUOP</td><td>90% (54 AUOP)</td><td>10% (6 AUOP)</td></tr>
+<tr><td>Phase 9</td><td>17,500 AUOP</td><td>120,001-130,000</td><td>80 AUOP</td><td>90% (72 AUOP)</td><td>10% (8 AUOP)</td></tr>
+<tr><td>Phase 10</td><td>20,000 AUOP</td><td>130,001-140,000</td><td>90 AUOP</td><td>90% (81 AUOP)</td><td>10% (9 AUOP)</td></tr>
+<tr><td>Phase 11</td><td>22,500 AUOP</td><td>140,001-160,000</td><td>100 AUOP</td><td>90% (90 AUOP)</td><td>10% (10 AUOP)</td></tr>
 <tr><td>Phase 12</td><td>25,000 AUOP</td><td>160,001-180,000</td><td>120 AUOP</td><td>90% (108 AUOP)</td><td>10% (12 AUOP)</td></tr>
 <tr><td>Phase 13</td><td>30,000 AUOP</td><td>180,001-200,000</td><td>135 AUOP</td><td>90% (121.5 AUOP)</td><td>10% (13.5 AUOP)</td></tr>
 <tr><td>Phase 14</td><td>40,000 AUOP</td><td>200,001-250,000</td><td>150 AUOP</td><td>90% (135 AUOP)</td><td>10% (15 AUOP)</td></tr>
