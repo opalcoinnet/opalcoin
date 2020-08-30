@@ -6,7 +6,7 @@ OPALcoin is a cryptocurrency blockchain, with an embedded Proof of Stake (POS) a
 Users can contribute to the network in two separate ways. 
 Proof of Stake: 10% of every block reward goes to the stake holders of the project. 
 Individuals that stake will receive a portion of the POS rewards. 
-Masternodes: 80% of every bock reward goes to Masternode holders.
+Masternodes: 90% of every bock reward goes to Masternode holders.
 More information at [opalcoin.net](http://www.opalcoin.net) 
 
 ### Coin Specs
@@ -39,8 +39,8 @@ More information at [opalcoin.net](http://www.opalcoin.net)
 
 <table>
 <th>Phase</th><th>Collateral</th><th>Block Height</th><th>Reward</th><th>Masternodes</th><th>Stakers</th>
-<tr><td>Phase 1</td><td>100 AUOP</td><td>251-5,000</td><td>2 AUOP</td><td>90% (1.8 AUOP)</td><td>10% (0.2 AUOP)</td></tr>
-<tr><td>Phase 2</td><td>250 AUOP</td><td>5,001-15,000</td><td>2.5 AUOP</td><td>90% (2.25 AUOP)</td><td>10% (0.25 AUOP)</td></tr>
+<tr><td>Phase 1</td><td>100 AUOP</td><td>351-5,000</td><td>2 AUOP</td><td>90% (1.8 AUOP)</td><td>10% (0.2 AUOP)</td></tr>
+<tr><td>Phase 2</td><td>350 AUOP</td><td>5,001-15,000</td><td>2.5 AUOP</td><td>90% (2.25 AUOP)</td><td>10% (0.25 AUOP)</td></tr>
 <tr><td>Phase 3</td><td>350 AUOP</td><td>15,001-25,000</td><td>3 AUOP</td><td>90% (2.7 AUOP)</td><td>10% (0.3 AUOP)</td></tr>
 <tr><td>Phase 4</td><td>500 AUOP</td><td>25,001-35,000</td><td>5 AUOP</td><td>90% (4.5 AUOP)</td><td>10% (0.5 AUOP)</td></tr>
 <tr><td>Phase 5</td><td>700 AUOP</td><td>35,001-55,000</td><td>7 AUOP</td><td>90% (6.3 AUOP)</td><td>10% (0.7 AUOP)</td></tr>
