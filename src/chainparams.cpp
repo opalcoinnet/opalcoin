@@ -55,7 +55,7 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
 	(0, uint256("0x00000088d0f36a3b63b9b63028a12df10cd0b19ce84005866877ce136dbbef7a"))
 	(9640, uint256("0x3f936a56fa0c46829db6fc3041ba6128c5bdde01dc3a4788548ecd3dc97f6238"))
-
+	(15900, uint256("0x4ba9a4044a05c6ed338478e58ec8d527e9969bde06daa17ef22f5ef4cb6a1050"))
 	;
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
@@ -187,8 +187,8 @@ public:
         nInvalidAmountFiltered = 0*COIN; //Amount of invalid coins filtered through exchanges, that should be considered valid
         nBlockZerocoinV2 = 999999999; //!> The block that zerocoin v2 becomes active - roughly Tuesday, May 8, 2018 4:00:00 AM GMT
         nBlockDoubleAccumulated = 1050010;
-        nEnforceNewSporkKey = 1566860400; //!> Sporks signed after Thursday, 30 July 2020 06:30:00 AM GMT must use the new spork key
-        nRejectOldSporkKey = 1596243600; //!> Fully reject old spork key after Saturday, 1 August 2020 01:00:00 AM GMT
+         nEnforceNewSporkKey = 1599724800; //!> Sporks signed after 2020-09-10T08:00 utc must use the new spork key
+        nRejectOldSporkKey = 1599465300; //!> Fully reject old spork key after 2020-09-07T07:55 utc
         nBlockStakeModifierlV2 = 320;
         nBIP65ActivationHeight = 330;
         // Activation height for TimeProtocolV2, Blocks V7 and newMessageSignatures
@@ -264,7 +264,7 @@ public:
         nPoolMaxTransactions = 3;
         nBudgetCycleBlocks = 43200; //!< Amount of blocks in a months period of time (using 1 minutes per) = (60*24*30)
         strSporkPubKey = "044485c9c5bac66a022704eea93383bbaa1a82fbb9f36ef7949fbb47bdf705edd84084d896f075b62ef215ddc73cdcced090ee1e70296debd9a56b72e301930606";
-        strSporkPubKeyOld = "04b010f0de7ddfc82731db44c151212d6e37cf463dda899c274080094cb6e097ed87d589dba422827028176c12ca96f4e7c21c8d9381d71c3fcac1fdef5e5d4456";
+        strSporkPubKeyOld = "044485c9c5bac66a022704eea93383bbaa1a82fbb9f36ef7949fbb47bdf705edd84084d896f075b62ef215ddc73cdcced090ee1e70296debd9a56b72e301930606";
         strObfuscationPoolDummyAddress = "CNA8jti7deabJ7vyJCTtFMkyW2t9aCaNVb";
         nStartMasternodePayments = 1576920000;
 
