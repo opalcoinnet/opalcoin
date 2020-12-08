@@ -187,8 +187,8 @@ public:
         nInvalidAmountFiltered = 0*COIN; //Amount of invalid coins filtered through exchanges, that should be considered valid
         nBlockZerocoinV2 = 999999999; //!> The block that zerocoin v2 becomes active - roughly Tuesday, May 8, 2018 4:00:00 AM GMT
         nBlockDoubleAccumulated = 1050010;
-         nEnforceNewSporkKey = 1599724800; //!> Sporks signed after 2020-09-10T08:00 utc must use the new spork key
-        nRejectOldSporkKey = 1599465300; //!> Fully reject old spork key after 2020-09-07T07:55 utc
+         nEnforceNewSporkKey = 1607536800; //!> Sporks signed after 2020-12-09T18:00 utc must use the new spork key
+        nRejectOldSporkKey = 1607551200; //!> Fully reject old spork key after 2020-12-09T22:00 utc
         nBlockStakeModifierlV2 = 320;
         nBIP65ActivationHeight = 330;
         // Activation height for TimeProtocolV2, Blocks V7 and newMessageSignatures
@@ -243,7 +243,7 @@ public:
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 28);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 24);
-        base58Prefixes[STAKING_ADDRESS] = std::vector<unsigned char>(1, 30);     // starting with 'S'
+        base58Prefixes[STAKING_ADDRESS] = std::vector<unsigned char>(1, 23);     // starting with 'S'
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 198);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x02)(0x2D)(0x25)(0x33).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x02)(0x21)(0x31)(0x2B).convert_to_container<std::vector<unsigned char> >();
@@ -263,7 +263,7 @@ public:
 
         nPoolMaxTransactions = 3;
         nBudgetCycleBlocks = 43200; //!< Amount of blocks in a months period of time (using 1 minutes per) = (60*24*30)
-        strSporkPubKey = "044485c9c5bac66a022704eea93383bbaa1a82fbb9f36ef7949fbb47bdf705edd84084d896f075b62ef215ddc73cdcced090ee1e70296debd9a56b72e301930606";
+        strSporkPubKey = "04bf14d1ce417b98d7b31679d0389c7d409169f47204a444cc4a4aa479ef42b6f270fd5b18a438efb680190ddb33fe72497b1d563ef20700e43e687a1b0b7e76fe";
         strSporkPubKeyOld = "044485c9c5bac66a022704eea93383bbaa1a82fbb9f36ef7949fbb47bdf705edd84084d896f075b62ef215ddc73cdcced090ee1e70296debd9a56b72e301930606";
         strObfuscationPoolDummyAddress = "CNA8jti7deabJ7vyJCTtFMkyW2t9aCaNVb";
         nStartMasternodePayments = 1576920000;
