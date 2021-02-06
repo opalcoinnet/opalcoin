@@ -52,8 +52,8 @@ More information at [opalcoin.net](http://www.opalcoin.net)
 <tr><td>Phase 11</td><td>22,500 AUOP</td><td>140,001-160,000</td><td>100 AUOP</td><td>90% (90 AUOP)</td><td>10% (10 AUOP)</td></tr>
 <tr><td>Phase 12</td><td>25,000 AUOP</td><td>160,001-180,000</td><td>110 AUOP</td><td>90% (99 AUOP) </td><td>10% (10 AUOP </td></tr>
 <tr><td>Phase 13</td><td>30,000 AUOP</td><td>180,001-200,000</td><td>120 AUOP</td><td>90% (108 AUOP)</td><td>10% (12 AUOP)</td></tr>
-<tr><td>Phase 14</td><td>40,000 AUOP</td><td>200,001-250,000</td><td>100 AUOP</td><td>90% (90 AUOP)</td><td>10% (10 AUOP)</td></tr>
-<tr><td>Phase 15</td><td>50,000 AUOP</td><td>250,001-300,000</td><td>80 AUOP</td><td>90% (72 AUOP)</td><td>10% (8 AUOP)</td></tr>
+<tr><td>Phase 14</td><td>40,000 AUOP</td><td>200,001-230,000</td><td>100 AUOP</td><td>90% (90 AUOP)</td><td>10% (10 AUOP)</td></tr>
+<tr><td>Phase 15</td><td>50,000 AUOP</td><td>230,001-300,000</td><td>80 AUOP</td><td>90% (72 AUOP)</td><td>10% (8 AUOP)</td></tr>
 <tr><td>Phase 16</td><td>60,000 AUOP</td><td>300,001-350,000</td><td>60 AUOP</td><td>90% (54 AUOP)</td><td>10% (6 AUOP)</td></tr>
 <tr><td>Phase 17</td><td>70,000 AUOP</td><td>350,001-... </td><td>50 AUOP</td><td>90% (45 AUOP)</td><td>10% (5 AUOP)</td></tr>
 </table>
